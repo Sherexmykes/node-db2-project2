@@ -26,7 +26,7 @@ server.get('/api/cars/:id', async (req, res) => {
 
 server.post('/api/cars', async (req, res) => {
     try {
-        const { VIN, make, model, mileage } = req.body;
+        const { make, model, mileage, VIN, year } = req.body;
         if (VIN && make && model && mileage) {
             const ids = await db.insert(req.body);
             const car = await db.findByID(ids.id);
